@@ -1,0 +1,32 @@
+package ${PACKAGE_NAME};
+
+import android.content.Context;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import kotlinx.android.synthetic.main.${LAYOUT_ID}.view.*
+
+#parse("File Header.java")
+class ${NAME_CLASS}(val items: List) {
+     
+    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int) = ViewHolder(parent.inflate(R.layout.${LAYOUT_ID}))
+ 
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(items[position])
+
+    override fun getItemCount() = items.size
+
+    override fun getItemViewType(position: Int) = position
+
+    override fun getItemId(position: Int)  = position
+ 
+    class ${NAME_VIEWHOLDER_CLASS}(view: View) : RecyclerView.ViewHolder(itemView)
+
+    class ${NAME_VIEWHOLDER_CLASS}(view: View) : RecyclerView.ViewHolder(view) {
+    
+        fun bind(item: ${ITEMS_NAME_CLASS}) = with(view) {
+            itemTitle.text = item.title
+            setOnClickListener { }
+        }
+    }
+}

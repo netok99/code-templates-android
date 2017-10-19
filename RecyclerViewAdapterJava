@@ -18,7 +18,7 @@ public class ${NAME_CLASS} extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         return new ${VIEWHOLDER_CLASS}(
-            LayoutInflater.from(viewGroup.getContext()).inflate(${LAYOUT_ID} viewGroup, false));
+            LayoutInflater.from(viewGroup.getContext()).inflate((R.layout.${LAYOUT_ID} viewGroup, false));
     }
 
     @Override
