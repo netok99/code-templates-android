@@ -1,0 +1,57 @@
+package ${PACKAGE_NAME};
+
+import android.content.Context;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import java.util.List;
+
+#parse("File Header.java")
+public class ${NAME_CLASS} extends RecyclerView.Adapter {
+    private ${ITEMS_NAME_CLASS} ${ITEMS_NAME};
+   
+    public ${NAME_CLASS}(${ITEM_CLASS} ${ITEMS_NAME}) {
+        this.${ITEMS_NAME} = ${ITEMS_NAME};
+    }
+
+    @Override
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+        return new ${VIEWHOLDER_CLASS}(
+            LayoutInflater.from(viewGroup.getContext()).inflate(${LAYOUT_ID} viewGroup, false));
+    }
+
+    @Override
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+        ${NAME_VIEWHOLDER_CLASS} viewHolder = (${NAME_VIEWHOLDER_CLASS}) holder;
+        viewHolder.bind(final ${ITEMS_NAME}.get(position), position);
+    }
+
+    @Override
+    public int getItemCount() {
+        if (${ITEMS_CLASS} == null)
+            return 0;
+        return ${ITEMS_CLASS}.size();
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return position;
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    public class ${NAME_VIEWHOLDER_CLASS} extends RecyclerView.ViewHolder {
+        
+        public ${NAME_VIEWHOLDER_CLASS}(@NonNull View view) {
+            super(view);
+        }
+
+        void bind(@NonNull final Route item, final int position) {
+
+        }
+    }
+}
